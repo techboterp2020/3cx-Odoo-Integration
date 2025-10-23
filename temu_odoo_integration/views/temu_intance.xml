@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="temu_intance_view_form" model="ir.ui.view">
+        <field name="name">temu.intance.view.form</field>
+        <field name="model">temu.intance</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="temu_endpoint_url" widget="url"/>
+                        <field name="temu_app_key"/>
+                        <field name="temu_app_secret" password="True"/>
+                        <field name="temu_access_token" password="True"/>
+                        <field name="temu_auto_update_fulfillment"/>
+                    </group>
+
+                    <notebook>
+                        <page name="operation" string="Operations">
+                           <group >
+                            <group name="category" string="Category">
+                            <button string="Fetch Category" name="fetch_category" type="object" class="oe_highlight"/>
+                            <field name="fetch_category_date" readonly="1"/>
+    
+                            </group>
+                            <group name="fetch_product" string="Product">
+                            <button string="Fetch Products" name="fetch_products" type="object" class="oe_highlight"/>
+                            <field name="fetch_product_date" readonly="1"/>
+        
+                            </group>
+                           </group>
+                           <group>
+                            <group string='Create Product'>
+                            <button string="Create Product" name="update_product_odoo_to_shopify" type="object" class="oe_highlight"/>  
+                            <field name="create_product_last_date" readonly="1"/>  
+
+                            </group>
+
+
+                            <group string='Order'>
+                            <button string="Fetch Order" name="fetch_order_from_temu" type="object" class="oe_highlight"/>    
+                            <field name="fetch_order_date" readonly="1"/>
+
+                            </group>
+
+                           </group>
+                            
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="temu_intance_view_tree" model="ir.ui.view">
+        <field name="name">temu.intance.view.tree</field>
+        <field name="model">temu.intance</field>
+        <field name="arch" type="xml">
+            <list string="">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    
+
+
+    <record id="action_temu_intance" model="ir.actions.act_window">
+        <field name="name">Temu Instance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">temu.intance</field>
+        <field name="view_mode">list,form</field>    
+        <field name="view_id" ref="temu_intance_view_tree"/>
+       
+    </record>
+
+
+
+
+    <menuitem id="main_menu_temu_intance"
+          name="Temu"
+          web_icon="temu_odoo_integration,static/description/menu.png"      
+        />
+
+
+    <menuitem id="menu_temu_intance"
+          name="Temu Instance"
+          parent="main_menu_temu_intance"
+          action="action_temu_intance"
+           sequence="1"
+          />
+
+
+</odoo>

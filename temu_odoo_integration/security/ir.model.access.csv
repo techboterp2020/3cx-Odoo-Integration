@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_temu_intance,temu.intance,model_temu_intance,base.group_user,1,1,1,1
+
+
+
+access_temu_intance_manager,temu_intance_manager,model_temu_intance,,1,1,1,1

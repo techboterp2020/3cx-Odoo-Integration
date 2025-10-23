@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- fetch cateogy schdular -->
+    <record id="fetch_category_corn" model="ir.cron">
+        <field name="name">Fetch Category Temu</field>
+        <field name="model_id" ref="model_temu_intance"/>
+        <field name="state">code</field>
+        <field eval="False" name="active"/>
+        <field name="code">model.fetch_category()</field>
+        <field name="active">True</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+
+
+    <!-- fetch Product schdular -->
+    <record id="fetch_product_corn" model="ir.cron">
+        <field name="name">Fetch Product Temu</field>
+        <field name="model_id" ref="model_temu_intance"/>
+        <field name="state">code</field>
+        <field eval="False" name="active"/>
+        <field name="code">model.fetch_products()</field>
+        <field name="active">True</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+    </record>
+
+
+    <!-- fetch Lead Category schdular -->
+    <record id="fetch_leaf_category_corn" model="ir.cron">
+        <field name="name">Fetch Leaf Category Temu</field>
+        <field name="model_id" ref="model_temu_intance"/>
+        <field name="state">code</field>
+        <field eval="False" name="active"/>
+        <field name="code">model.fetch_leaf_products()</field>
+        <field name="active">True</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+    </record>
+
+
+
+</odoo>

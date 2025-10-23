@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="temu_root_menu" name="Temu" sequence="50"/>
+    <menuitem id="temu_sync_wizard_menu" name="Manual Sync" action="action_temu_sync_wizard" parent="temu_root_menu" sequence="1"/>
+    <!-- This now calls our new, safe action instead of the default Odoo one -->
+    <menuitem id="temu_config_menu" name="Temu Configuration" parent="sale.menu_sale_config" sequence="100" action="action_temu_config_settings"/>
+
+</odoo>
